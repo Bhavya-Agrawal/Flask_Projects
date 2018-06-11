@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+
+from flask import Flask,render_template
+import os
+
+#to define a methid that will have all the features of flask
+
+app = Flask(__name__)
+
+# defining routes
+@app.route('/webpage')
+
+# define a function at the background of website page that will run from web.html page of templates folder of current working folder
+def web():
+	return render_template('web.html')
+
+
+#defining  route for python file
+@app.route('/py')
+
+#def a function in background of /py
+
+def pythonfile():
+#make sure the file has executable permissions
+	#out = exec(open("/home/bhavyaagrawal/flask_file.py").read())
+	#return out
+	#f = open("/home/bhavyaagrawal/flask_file.py","r")
+	#out = f.read()
+	return "hello"
+	#return os.system("python3 /home/bhavyaagrawal/flask_file.py")
+	#return out
+
+
+# call the main app or starting of the application
+if __name__ == "__main__":
+#for allowing debugging on the browser itself use (debug = True)
+	app.run(debug=True)
